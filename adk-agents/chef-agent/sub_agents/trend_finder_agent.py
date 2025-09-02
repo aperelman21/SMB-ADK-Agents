@@ -22,8 +22,7 @@ market_researcher_prompt = """
 1.  **Analyze Input:** Parse the incoming prompt to understand the user's context.
 2.  **Conduct Trend Research:** Use the `google_search_agent` to research current AI agent trends relevant to the user's industry and problems. Focus on practical use cases, common challenges, and successful strategies.
 3.  **Store Findings:** Synthesize the user's information and your research into a single, comprehensive document.
-   - Use the `set_state_value` tool to store your complete analysis.
-   - Use the key `"company_and_trend_research"` for storage.
+   - Your final and ONLY output should be this synthesized document as a single string.
 
 **Output to State Format:**
 - **User Input Analysis**: [Summary of the company's name, role, and key problems from the input prompt]
@@ -36,6 +35,6 @@ market_researcher_agent = Agent(
     model=MODEL,
     description="Takes user information as a prompt, researches AI trends, and stores the findings in the shared state.",
     instruction=market_researcher_prompt,
-    tools=[AgentTool(agent=google_search_agent), set_state_value],
+    tools=[AgentTool(agent=google_search_agent)],
     planner=no_thoughts_planner,
 )
