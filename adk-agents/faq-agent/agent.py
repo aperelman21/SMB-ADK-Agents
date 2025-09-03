@@ -5,7 +5,7 @@ YOUR_DATASTORE_ID = "projects/mx-summit-470817/locations/global/collections/defa
 vertex_search_tool = VertexAiSearchTool(data_store_id=YOUR_DATASTORE_ID)
 
 root_agent = Agent(
-    name="panadero-asistant",
+    name="panadero_asistant",
     model="gemini-2.0-flash",
     description=(
         "Agente que contesta cualquier pregunta acerca de cómo hacer pan."
